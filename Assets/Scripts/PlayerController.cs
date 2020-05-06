@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         this.Rotate();
+        //目前不知道wasd方向是哪个对应xyz，所以先这样写，之后确定了再修改
         if(Input.GetKey(KeyCode.W))
         {
             y=speed*Time.deltaTime;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
             x=-speed*Time.deltaTime;
         }
 
-        transform.Translate(new Vector2(x,y),Space.Self)
+        transform.Translate(new Vector3(x,y),Space.Self)；
     }
 
     void Rotate(){
