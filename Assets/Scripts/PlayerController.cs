@@ -5,7 +5,8 @@ public class PlayerController : MonoBehaviour
 
     Transform _transform;
     Camera _camera;
-
+    public float speed =2;
+    float x,y;
 
     void Start()
     {
@@ -17,6 +18,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         this.Rotate();
+        if(Input.GetKey(KeyCode.W))
+        {
+            y=speed*Time.deltaTime;
+        }
+        if(Input.GetKey(KeyCode.S))
+        {
+            y=-speed*Time.deltaTime;
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            x=speed*Time.deltaTime;
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+            x=-speed*Time.deltaTime;
+        }
+
+        transform.Translate(new Vector2(x,y),Space.Self)
     }
 
     void Rotate(){
