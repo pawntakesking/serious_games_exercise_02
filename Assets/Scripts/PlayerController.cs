@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Camera _camera;
     public float speed =2;
     float x,y;
+    /*public float _speed;*/
 
     void Start()
     {
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Translate(new Vector3(x,y),Space.Self)；
+        
+        /*this.move();*/
     }
 
     void Rotate(){
@@ -46,4 +49,16 @@ public class PlayerController : MonoBehaviour
         this._transform.rotation = Quaternion.Euler(0, 0, angleDeg - 90);//diese -90 sind nötig für Sprites, die nach oben zeigen. Nutzen Sie andere Assets, könnte es sein, dass die das anpassen müssen
         
     }
+     //这是我的版本，上传上来看看
+     /*void move(){
+       
+        float _horizontalInput = Input.GetAxis("Horizontal");
+        
+        float _verticalInput = Input.GetAxis("Vertical");
+       
+        _transform.position = _transform.position + new Vector3(_horizontalInput * _speed * Time.deltaTime, _verticalInput * _speed * Time.deltaTime, 0);
+      
+        Debug.Log(_transform.position);
+    }*/
+
 }
