@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Translate(new Vector3(x,y),Space.Self)；
+        //注意这里是中文分号，代码要编译完了跑通了再上传
+        //另外这里Space.self是不符合演示的，演示的情况AWSD应该在世界坐标系下移动而不是Object坐标系
         
         /*this.move();*/
     }
