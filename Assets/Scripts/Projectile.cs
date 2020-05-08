@@ -11,13 +11,15 @@ public class Projectile : MonoBehaviour
     public float _timer=5;
     public float _speed=1;
     
+    
     //We set values in a Init method. Virtual, so we can extend it later :)
     public virtual Projectile Init(Vector3 direction){
         this._direction = direction;
-        Destroy(this,_timer);//我不确定放这里还是start
+        Destroy(this,_timer);//我不确定放这里还是start //貌似都ok -包
         /*
         Your Code here
         */
+        this.transform.position +=  this._direction * _speed  * Time.deltaTime; // -包
         return this;
     }
 
@@ -27,11 +29,15 @@ public class Projectile : MonoBehaviour
         this._transform = this.transform;
         this._camera = Camera.main;
         this.Rotate();
+        Vector _mousePos = new Vector3(this._camera.ScreenToWorldPoint(Input.mousePosition).x, 
+                                       this._camera.ScreenToWorldPoint(Input.mousePosition).y, 0); // -包
     }
 
     void Update()
     {
         _transform.Translate(_direction*Time.deltaTime*_speed);
+        this.Rotate(); //不知道为什么，反正我这里还需要Rotate，不然我的Projectile就很怪 -包
+        this.Init(_mousePos); // -包
     }
 
     
