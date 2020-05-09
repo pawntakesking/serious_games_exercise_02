@@ -9,8 +9,9 @@ public class PlayerController : MonoBehaviour
     float x,y;
     /*public float _speed;*/
     public GameObject _prefab; //-包
-    float _cd = 3; //冷却时间，暂定3秒。
-    float _ready = 0;//冷却完成，可以发射。 -包
+    float _cd = 3; //冷却时间，暂定3秒
+    float _ready = 0;//冷却完成，可以发射 
+    float _destroyTime = 5f; //毁灭时间 -包
     
 
     void Start()
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Left Mouse clicked");
             _ready = Time.time + _cd; //每_cd秒能够发射一次
             GameObject clone = Instantiate(_prefab, this._transform.position, Quaternion.identity) as GameObject;
-            Destroy(clone, this._destroyTime); //得写在这里才会删掉。
+            Destroy(clone, this._destroyTime); //得写在这里才会删掉
             } //左键的时候发射激光 -包   
     }
 
