@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed =2;
     float x,y;
     /*public float _speed;*/
+    public GameObject _prefab; //-包
 
     void Start()
     {
@@ -40,7 +41,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(new Vector3(x,y,0),Space.World);
         //这样应该可以了
         
-        /*this.move();*/
+        /*this.move();*/ 
+         if(Input.GetMouseButtonDown(0)){
+            Debug.Log("Left Mouse clicked");
+            GameObject clone = Instantiate(_prefab, this._transform.position, Quaternion.identity) as GameObject;
+            } //左键的时候发射激光 -包   
     }
 
     void Rotate(){
@@ -60,6 +65,6 @@ public class PlayerController : MonoBehaviour
         _transform.position = _transform.position + new Vector3(_horizontalInput * _speed * Time.deltaTime, _verticalInput * _speed * Time.deltaTime, 0);
       
         Debug.Log(_transform.position);
-    }*/
+    }*/ //-包
 
 }
