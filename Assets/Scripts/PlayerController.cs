@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         //这样应该可以了
         
         /*this.move();*/ 
-         if(Input.GetMouseButtonDown(0) && Time.time >= _ready){
+         if(Input.GetMouseButtonDown(0) && Time.time > _ready){
             Debug.Log("Left Mouse clicked");
             _ready = Time.time + _cd; //每_cd秒能够发射一次
             GameObject clone = Instantiate(_prefab, this._transform.position, Quaternion.identity) as GameObject;
