@@ -19,7 +19,8 @@ public class Projectile : MonoBehaviour
         /*
         Your Code here
         */
-        this.transform.position +=  this._direction * _speed  * Time.deltaTime; // -包
+        //normalized 使所有激光的飞行速度保持一致 -包
+        this.transform.position +=  (this._direction.normalized) * _speed  * Time.deltaTime; // -包
         return this;
     }
 
