@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     Camera _camera;
     //自毁计时器
     /*public float _timer=5;*/ //放到Controller那边去了 -包
-    public float _speed=1;
+    float _speed = 5f;
     
     
     //We set values in a Init method. Virtual, so we can extend it later :)
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        _transform.Translate(_direction*Time.deltaTime*_speed);
+        _transform.Translate(_direction*Time.deltaTime*_speed); //这一行是做什么的？
         this.Rotate(); //不知道为什么，反正我这里还需要Rotate，不然我的Projectile就很怪 -包
         this.Init(_mousePos); // -包
     }
